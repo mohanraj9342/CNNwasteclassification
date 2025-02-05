@@ -27,6 +27,5 @@ Model Development – Built a CNN using TensorFlow/Keras for classification.
 Training & Testing – Trained the model and evaluated its performance.
 Performance Analysis – Measured accuracy, loss, and optimized the model.
 
-[Uploading To develop a CNN model to classify images of plastic waste.pptx…]()
 Conclusion:
 This project showcases the power of CNNs in automating the classification of plastic waste. The model improves sorting accuracy and speeds up recycling, contributing to environmental sustainability by reducing plastic pollution.
