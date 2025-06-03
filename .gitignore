@@ -1,0 +1,34 @@
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data and model files
+*.h5
+*.hdf5
+*.ckpt
+*.pb
+*.npy
+*.npz
+*.csv
+*.log
+*.db
+*.sqlite
+*.pkl
+*.joblib
+
+# VSCode settings
+.vscode/
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Kaggle cache
+/root/.cache/
