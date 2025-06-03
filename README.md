@@ -11,6 +11,7 @@ CNNwasteclassification/
 ├── requirements.txt                        # List of required Python packages
 ├── README.md                               # Project documentation
 └── .gitignore                              # Git ignore file
+└──  To develop a CNN model to classify images of plastic waste.pptx   #PPT file for better understand
 ```
 
 ## Getting Started
