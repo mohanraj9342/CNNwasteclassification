@@ -1,9 +1,8 @@
 # � BioClassifyAI - AI-Powered Waste Classification
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://yourusername.github.io/waste-classification-portfolio)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://mohanraj9342.github.io/CNNwasteclassification)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)](https://tensorflow.org)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.x-blue)](https://js.tensorflow.org)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > **Smart identification of biodegradable vs non-biodegradable waste using deep learning and computer vision**
 
@@ -19,7 +18,7 @@ BioClassifyAI is an end-to-end machine learning portfolio project that demonstra
 
 ## � Live Demo
 
-🌐 **[Try the Live Demo](https://yourusername.github.io/waste-classification-portfolio)**
+🌐 **[Try the Live Demo](https://mohanraj9342.github.io/CNNwasteclassification)**
 
 **Features:**
 - Drag & drop image upload
@@ -134,8 +133,8 @@ Non-trainable params: 960
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/waste-classification-portfolio.git
-cd waste-classification-portfolio
+git clone https://github.com/mohanraj9342/CNNwasteclassification.git
+cd CNNwasteclassification
 ```
 
 ### **2. Run Locally**
@@ -224,8 +223,8 @@ open http://localhost:8000
 #### **Option 1: Full Development Environment**
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/waste-classification-portfolio.git
-cd waste-classification-portfolio
+git clone https://github.com/mohanraj9342/CNNwasteclassification.git
+cd CNNwasteclassification
 
 # Create virtual environment
 python -m venv .venv
@@ -301,10 +300,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## � Acknowledgments
 
 - **Dataset:** [Kaggle Waste Segregation Dataset](https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification)
@@ -314,10 +309,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+**Mohanraj V**
+- GitHub: [@mohanraj9342](https://github.com/mohanraj9342)
+- Email: mohanraj20050808@gmail.com
 
 ---
 
