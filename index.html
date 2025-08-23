@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Biodegradable Waste Classification - Portfolio Project</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3>Loading AI Portfolio</h3>
+            <p>Preparing the waste classification demo...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-leaf"></i> BioClassifyAI</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#methodology" class="nav-link">Methodology</a></li>
+                <li class="nav-item"><a href="#results" class="nav-link">Results</a></li>
+                <li class="nav-item"><a href="#demo" class="nav-link">Demo</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">AI-Powered Waste Classification</h1>
+                <p class="hero-subtitle">Smart identification of biodegradable vs non-biodegradable waste using deep learning</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>95.38%</h3>
+                        <p>Validation Accuracy</p>
+                    </div>
+                    <div class="stat">
+                        <h3>19.3M</h3>
+                        <p>Model Parameters</p>
+                    </div>
+                    <div class="stat">
+                        <h3>220MB</h3>
+                        <p>Model Size</p>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#demo" class="btn btn-primary">Try Demo</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="model-preview">
+                    <div class="preview-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>CNN Model</h3>
+                        <p>Deep learning classification</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About This Project</h2>
+                <p>An end-to-end deep learning solution for automated waste classification</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Problem Statement</h3>
+                    <p>Proper waste segregation is crucial for environmental sustainability and composting. Manual sorting is time-consuming and error-prone. This project demonstrates how AI can automate the biodegradability classification process.</p>
+                    
+                    <h3>Solution</h3>
+                    <p>I developed a Convolutional Neural Network (CNN) that can accurately classify waste images into two categories:</p>
+                    <ul>
+                        <li><strong>Biodegradable:</strong> Organic materials that naturally decompose (food waste, leaf waste, paper waste, wood waste)</li>
+                        <li><strong>Non-Biodegradable:</strong> Materials that don't naturally decompose (plastic bottles, metal cans, e-waste, plastic bags)</li>
+                    </ul>
+                    
+                    <h3>Technologies Used</h3>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-brain"></i>
+                            <span>TensorFlow</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Keras</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-js"></i>
+                            <span>TensorFlow.js</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="process-flow">
+                        <div class="flow-step">
+                            <i class="fas fa-database"></i>
+                            <h4>Dataset</h4>
+                            <p>Kaggle biodegradable waste dataset with 15K+ images</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <i class="fas fa-cogs"></i>
+                            <h4>Training</h4>
+                            <p>CNN model with data augmentation</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <i class="fas fa-globe"></i>
+                            <h4>Deployment</h4>
+                            <p>Browser-based inference</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology" class="methodology">
+        <div class="container">
+            <div class="section-header">
+                <h2>Methodology</h2>
+                <p>Detailed approach to building the waste classification system</p>
+            </div>
+            <div class="methodology-content">
+                <div class="method-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Data Collection & Preprocessing</h3>
+                        <p>Downloaded dataset using kagglehub, organized nested subcategories into binary classification, and applied image preprocessing including resizing to 224x224 pixels and normalization.</p>
+                        <div class="code-snippet">
+                            <code>path = kagglehub.dataset_download("aashidutt3/waste-segregation-image-dataset")</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Data Augmentation</h3>
+                        <p>Applied various augmentation techniques to increase dataset diversity and prevent overfitting: rotation, width/height shifts, shearing, zooming, and horizontal flipping.</p>
+                        <div class="method-details">
+                            <ul>
+                                <li>Rotation: ±20 degrees</li>
+                                <li>Shifts: 20% width/height</li>
+                                <li>Zoom: 20% range</li>
+                                <li>Horizontal flip enabled</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Model Architecture</h3>
+                        <p>Designed a CNN with four convolutional blocks, each containing Conv2D, BatchNormalization, and MaxPooling layers, followed by fully connected layers with dropout for regularization.</p>
+                        <div class="architecture-visual">
+                            <div class="layer">Conv2D(32) → BatchNorm → MaxPool</div>
+                            <div class="layer">Conv2D(64) → BatchNorm → MaxPool</div>
+                            <div class="layer">Conv2D(128) → BatchNorm → MaxPool</div>
+                            <div class="layer">Conv2D(256) → BatchNorm → MaxPool</div>
+                            <div class="layer">Flatten → Dense(512) → Dense(1) + Sigmoid</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Training & Optimization</h3>
+                        <p>Used Adam optimizer with learning rate scheduling, early stopping, and cross-validation for optimal performance. Trained for 30 epochs with early stopping achieving 95.38% validation accuracy.</p>
+                        <div class="training-params">
+                            <span>Adam Optimizer</span>
+                            <span>Binary Crossentropy Loss</span>
+                            <span>Early Stopping</span>
+                            <span>Learning Rate Scheduling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results">
+        <div class="container">
+            <div class="section-header">
+                <h2>Results & Performance</h2>
+                <p>Comprehensive evaluation of the trained model</p>
+            </div>
+            <div class="results-content">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Model Performance</h3>
+                        <div class="metrics">
+                            <div class="metric">
+                                <span class="metric-value">95.38%</span>
+                                <span class="metric-label">Accuracy</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">30</span>
+                                <span class="metric-label">Epochs</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">19M</span>
+                                <span class="metric-label">Parameters</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Classification Report</h3>
+                        <div class="classification-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Class</th>
+                                        <th>Precision</th>
+                                        <th>Recall</th>
+                                        <th>F1-Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Biodegradable</td>
+                                        <td>94.2%</td>
+                                        <td>96.8%</td>
+                                        <td>95.5%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Non-Biodegradable</td>
+                                        <td>96.1%</td>
+                                        <td>93.9%</td>
+                                        <td>95.0%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Key Achievements</h3>
+                        <ul class="achievements">
+                            <li><i class="fas fa-check"></i> Achieved 95.38% validation accuracy</li>
+                            <li><i class="fas fa-check"></i> Stable predictions (σ = 0.015)</li>
+                            <li><i class="fas fa-check"></i> Robust CNN with 19.3M parameters</li>
+                            <li><i class="fas fa-check"></i> 4-layer Conv2D architecture</li>
+                            <li><i class="fas fa-check"></i> Browser-compatible TensorFlow.js</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Live Demo</h2>
+                <p>Test the biodegradable waste classification model with your own images</p>
+            </div>
+            <div class="demo-content">
+                <div class="demo-interface">
+                    <div class="upload-section">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3>Upload Waste Image</h3>
+                                <p>Drag & drop an image or click to browse</p>
+                                <input type="file" id="imageInput" accept="image/*" hidden>
+                            </div>
+                        </div>
+                        
+                        <div class="sample-images">
+                            <h4>Or try with sample images:</h4>
+                            <div class="sample-buttons">
+                                <button class="sample-btn" onclick="loadSampleImage('biodegradable')">
+                                    <i class="fas fa-leaf"></i>
+                                    Biodegradable Sample
+                                </button>
+                                <button class="sample-btn" onclick="loadSampleImage('non_biodegradable')">
+                                    <i class="fas fa-industry"></i>
+                                    Non-Biodegradable Sample
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="prediction-section">
+                        <div class="image-preview" id="imagePreview">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-image"></i>
+                                <p>Upload an image to see preview</p>
+                            </div>
+                        </div>
+                        
+                        <div class="prediction-result" id="predictionResult">
+                            <div class="result-placeholder">
+                                <i class="fas fa-brain"></i>
+                                <p>Prediction will appear here</p>
+                            </div>
+                        </div>
+                        
+                        <div class="loading-spinner" id="loadingSpinner">
+                            <div class="spinner"></div>
+                            <p>Processing image...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-info">
+                    <div class="info-card">
+                        <h4><i class="fas fa-info-circle"></i> How it works</h4>
+                        <ol>
+                            <li>Upload an image of waste material</li>
+                            <li>The CNN model processes the image</li>
+                            <li>Get instant classification results</li>
+                            <li>View confidence percentage</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-lightbulb"></i> Best Results</h4>
+                        <ul>
+                            <li>Clear, well-lit images</li>
+                            <li>Single object focus</li>
+                            <li>Minimal background clutter</li>
+                            <li>Common waste materials</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-left">
+                    <h2>Get In Touch</h2>
+                    <p>Let's discuss this project or collaborate on future AI initiatives</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fab fa-google"></i>
+                            <div>
+                                <h4>Gmail</h4>
+                                <p>mohanraj20050808@gmail.com</p>
+                            </div>
+                        </div>
+                        <a href="https://github.com/mohanraj9342" target="_blank" class="contact-method clickable">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h4>GitHub</h4>
+                                <p>github.com/mohanraj9342</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-right">
+                    <h3>Project Resources</h3>
+                    <div class="project-links">
+                        <a href="https://github.com/mohanraj9342/CNNwasteclassification" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            View Project Repository
+                        </a>
+                        <a href="https://www.kaggle.com/datasets/aashidutt3/waste-segregation-image-dataset" target="_blank" class="project-link">
+                            <i class="fab fa-kaggle"></i>
+                            Dataset on Kaggle
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Model Loading Status -->
+    <div id="modelStatus" class="model-status">
+        <div class="status-content">
+            <div class="status-spinner"></div>
+            <p>Loading AI model...</p>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=2025082403"></script>
+    <script src="js/model.js?v=2025082403"></script>
+</body>
+</html>

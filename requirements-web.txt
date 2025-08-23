@@ -1,0 +1,14 @@
+# Minimal requirements for running the web application only
+# (No training dependencies needed for deployment)
+
+# Web Server (Python built-in http.server is sufficient)
+# No additional requirements needed for basic web serving
+
+# Optional: Enhanced web serving
+# flask>=2.0.0
+# gunicorn>=20.1.0
+
+# Note: The web application runs entirely in the browser using:
+# - TensorFlow.js (loaded via CDN)
+# - Vanilla JavaScript, HTML, CSS
+# - No Python backend required for inference

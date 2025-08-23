@@ -1,0 +1,29 @@
+# Development requirements for Google Colab environment
+# Optimized for notebook training and model conversion
+
+# Core ML (usually pre-installed in Colab)
+tensorflow
+keras
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+
+# Data loading
+kagglehub
+requests
+
+# Image processing
+pillow
+opencv-python
+
+# Model conversion
+tensorflowjs
+
+# Utilities
+tqdm
+
+# Colab-specific (usually pre-installed)
+# google-colab
+# ipywidgets
