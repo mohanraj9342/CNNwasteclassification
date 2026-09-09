@@ -318,70 +318,14 @@ async function predictWasteClass(file) {
         loadingSpinner.classList.add('active');
         predictionResult.innerHTML = '<div class="result-placeholder"><i class="fas fa-brain"></i><p>Processing image...</p></div>';
         
-        // TEMPORARY: Always use demo mode with smart analysis
-        console.log('🎭 Using enhanced demo mode prediction');
-        
-        // Analyze the uploaded image for demo purposes
-        const analyzeImage = new Promise((resolve) => {
-            const img = new Image();
-            img.onload = function() {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                canvas.width = img.width;
-                canvas.height = img.height;
-                ctx.drawImage(img, 0, 0);
-                
-                // Simple color analysis for demo
-                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                const data = imageData.data;
-                
-                let greenish = 0, blueish = 0, clearish = 0;
-                for (let i = 0; i < data.length; i += 4) {
-                    const r = data[i], g = data[i+1], b = data[i+2];
-                    if (g > r && g > b) greenish++;
-                    if (b > r && b > g) blueish++;
-                    if (r > 200 && g > 200 && b > 200) clearish++;
-                }
-                
-                // Demo logic: lots of blue/clear = plastic, green = organic
-                const isLikelyPlastic = (blueish + clearish) > greenish;
-                resolve(!isLikelyPlastic); // Invert: plastic = non-biodegradable
-            };
-            
-            const reader = new FileReader();
-            reader.onload = (e) => img.src = e.target.result;
-            reader.readAsDataURL(file);
-        });
-        
-        const fileName = file.name.toLowerCase();
-        
-        // Enhanced heuristic combining filename and visual analysis
-        Promise.resolve(analyzeImage).then((visualAnalysis) => {
-            let isLikelyBiodegradable = visualAnalysis;
-            
-            // Override with filename hints
-            if (fileName.includes('plastic') || fileName.includes('bottle') || fileName.includes('metal')) {
-                isLikelyBiodegradable = false;
-            } else if (fileName.includes('food') || fileName.includes('fruit') || fileName.includes('organic')) {
-                isLikelyBiodegradable = true;
+        // Ensure model is loaded if loading is currently in progress
+        if (!window.wasteModel && window.WasteModel && typeof window.WasteModel.loadModel === 'function') {
+            try {
+                await window.WasteModel.loadModel();
+            } catch (loadErr) {
+                console.warn('Model load in progress or failed:', loadErr);
             }
-            
-            const baseConfidence = Math.random() * 0.20 + 0.80; // 80-100% confidence
-            
-            setTimeout(() => {
-                loadingSpinner.classList.remove('active');
-                
-                const simulatedClass = isLikelyBiodegradable ? 'Biodegradable' : 'Non-Biodegradable';
-                const simulatedConfidence = baseConfidence;
-                
-                displayPrediction(simulatedClass, simulatedConfidence);
-                showNotification('🎭 Enhanced demo: Visual analysis + AI simulation!', 'info');
-            }, 2000);
-        });
-        
-        return; // Exit early for demo mode
-        
-        /* (Original prediction code below - commented out for debugging)
+        }
         
         // Check if model is loaded
         if (window.wasteModel && typeof window.wasteModel.predict === 'function') {
@@ -389,47 +333,49 @@ async function predictWasteClass(file) {
                 // Preprocess image for model
                 const tensor = await preprocessImage(file);
                 
-                // Make prediction
-                const prediction = await window.wasteModel.predict(tensor).data();
+                // Make prediction using the trained CNN model
+                const resultTensor = window.wasteModel.predict(tensor);
+                const prediction = await resultTensor.data();
                 const confidence = prediction[0];
                 const predictedClass = confidence > 0.5 ? 'Non-Biodegradable' : 'Biodegradable';
                 const finalConfidence = confidence > 0.5 ? confidence : 1 - confidence;
                 
-                // Clean up tensor if it has dispose method
+                // Clean up tensors to prevent GPU/CPU memory leaks
                 if (tensor && typeof tensor.dispose === 'function') {
                     tensor.dispose();
+                }
+                if (resultTensor && typeof resultTensor.dispose === 'function') {
+                    resultTensor.dispose();
                 }
                 
                 // Display result
                 setTimeout(() => {
                     loadingSpinner.classList.remove('active');
                     displayPrediction(predictedClass, finalConfidence);
-                    showNotification('Prediction completed!', 'success');
-                }, 1500);
+                    showNotification('AI model prediction completed!', 'success');
+                }, 800);
                 
             } catch (modelError) {
-                console.warn('Model prediction failed, using demo mode:', modelError);
-                // Fall back to demo mode
+                console.warn('Model prediction failed, using fallback mode:', modelError);
+                // Fall back to demo mode if inference fails
                 setTimeout(() => {
                     loadingSpinner.classList.remove('active');
                     const simulatedClass = Math.random() > 0.5 ? 'Non-Biodegradable' : 'Biodegradable';
                     const simulatedConfidence = Math.random() * 0.3 + 0.7;
                     displayPrediction(simulatedClass, simulatedConfidence);
-                    showNotification('Demo mode: Using simulated prediction', 'info');
-                }, 1500);
+                    showNotification('Fallback mode: Using simulated prediction', 'info');
+                }, 1000);
             }
         } else {
-            // Fallback: simulate prediction
+            // Fallback: simulate prediction if model is not loaded
             setTimeout(() => {
                 loadingSpinner.classList.remove('active');
                 const simulatedClass = Math.random() > 0.5 ? 'Non-Biodegradable' : 'Biodegradable';
                 const simulatedConfidence = Math.random() * 0.3 + 0.7;
                 displayPrediction(simulatedClass, simulatedConfidence);
-                showNotification('Demo mode: Using simulated prediction. Load the actual model for real results.', 'warning');
-            }, 2000);
+                showNotification('Fallback mode: Model still loading or unavailable. Using simulated result.', 'warning');
+            }, 1200);
         }
-        
-        */
         
     } catch (error) {
         loadingSpinner.classList.remove('active');
