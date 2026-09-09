@@ -1,5 +1,5 @@
 // TensorFlow.js model loading and prediction
-// Author: GitHub Copilot
+// Author: Mohanraj
 // Date: August 2025
 
 let wasteModel = null;

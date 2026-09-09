@@ -1417,6 +1417,12 @@ section {
 }
 
 /* Responsive Design */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .results-grid {
+        grid-template-columns: 1fr 1.3fr 1fr;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-container,
     .about-content,
@@ -1442,12 +1448,6 @@ section {
     .results-grid {
         grid-template-columns: 1fr;
     }
-
-@media (min-width: 992px) and (max-width: 1200px) {
-    .results-grid {
-        grid-template-columns: 1fr 1.3fr 1fr;
-    }
-}
     
     .method-step {
         flex-direction: column;
